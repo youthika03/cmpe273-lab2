@@ -24,7 +24,7 @@ curl -i http://localhost:8000/ -X GET
 * GET with setting **Cookies** in the request header.
 ```sh
 curl -i http://localhost:8000/ -X GET --cookie "session_id=99999"
-# Add -v for verbose mode to see what you are sending the request header.
+# Add -v to enable the verbose mode to see what you are sending in the request header.
 curl -i http://localhost:8000/ -X GET --cookie "session_id=99999" -v
 ```
 
