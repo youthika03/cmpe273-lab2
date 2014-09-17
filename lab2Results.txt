@@ -1,0 +1,125 @@
+
+
+$ curl -i http://localhost:8000/ -X POST -H "Content-Type: application/json" -d '{ "name" : "xxxx", "email": "xxxx@gmail.com" }'
+HTTP/1.1 200 OK
+Set-Cookie: session_id=1410912354053
+Date: Wed, 17 Sep 2014 00:05:54 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Hello xxxx
+
+$ curl -i http://localhost:8000/ -X GET --cookie "session_id=1410912354053"
+HTTP/1.1 200 OK
+Set-Cookie: session_id=1410912354053
+Date: Wed, 17 Sep 2014 00:06:20 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Hello xxxx
+
+										   
+$ curl -i http://localhost:8000/ -X PUT --cookie "session_id=1410912354053"
+HTTP/1.1 200 OK
+Set-Cookie: session_id=1410912414726
+Date: Wed, 17 Sep 2014 00:06:54 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Re-freshed session id
+
+$ curl -i http://localhost:8000/ -X DELETE --cookie "session_id=1410912414726"
+HTTP/1.1 200 OK
+Date: Wed, 17 Sep 2014 00:08:29 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Logged out from the server
+
+
+Read name and email from server
+xxxx
+xxxx@gmail.com
+new session id 1410912354053 for login::xxxx@gmail.com
+{ session_id: '1410912354053' }
+PUT:: Re-generate new seesion_id for the same user
+{ session_id: '1410912354053' }
+undefined
+undefined
+new session id 1410912414726 for login::undefined
+logout::1410912354053
+DELETE:: Logout from the server
+{ session_id: 'xxxxxxxxxxx' }
+DELETE:: Logout from the server
+{ session_id: '1410912414726' }
+logout::1410912414726
+*********************************************************************************
+
+$ curl -i http://localhost:8000/ -X POST -H "Content-Type: application/json" -d '{ "name" : "Lab2", "email": "lab2@gmail.com" }'
+HTTP/1.1 200 OK
+Set-Cookie: session_id=1410913150081
+Date: Wed, 17 Sep 2014 00:19:10 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Hello Lab2
+
+$ curl -i http://localhost:8000/ -X GET --cookie "session_id=1410913150081"
+HTTP/1.1 200 OK
+Set-Cookie: session_id=1410913150081
+Date: Wed, 17 Sep 2014 00:20:12 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Hello Lab2
+
+ 
+$ curl -i http://localhost:8000/ -X PUT --cookie "session_id=1410913150081"
+HTTP/1.1 200 OK
+Set-Cookie: session_id=1410913601992
+Date: Wed, 17 Sep 2014 00:26:41 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Re-freshed session id
+
+
+$ curl -i http://localhost:8000/ -X DELETE --cookie "session_id=1410913601992"
+HTTP/1.1 200 OK
+Date: Wed, 17 Sep 2014 00:27:35 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+Logged out from the server
+
+
+Read name and email from server
+Lab2
+lab2@gmail.com
+new session id 1410913150081 for login::lab2@gmail.com
+{ session_id: '1410913150081' }
+PUT:: Re-generate new seesion_id for the same user
+{}
+undefined
+undefined
+new session id 1410913310139 for login::undefined
+PUT:: Re-generate new seesion_id for the same user
+{}
+undefined
+undefined
+new session id 1410913327996 for login::undefined
+PUT:: Re-generate new seesion_id for the same user
+{}
+undefined
+undefined
+new session id 1410913405156 for login::undefined
+PUT:: Re-generate new seesion_id for the same user
+{ session_id: '1410913150081' }
+undefined
+undefined
+new session id 1410913601992 for login::undefined
+logout::1410913150081
+DELETE:: Logout from the server
+{ session_id: '1410913601992' }
+logout::1410913601992
+
